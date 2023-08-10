@@ -1,0 +1,11 @@
+<%@ page import="com.dft.secure.constants.ConstantCodes" %>
+
+<script src="${pageContext.request.contextPath}/assets/js/jquery-3.6.1.min.js?ver=<%=ConstantCodes.JS_VERSION%>"></script>
+<script src="${pageContext.request.contextPath}/assets/js/popper.min.js?ver=<%=ConstantCodes.JS_VERSION%>"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js?ver=<%=ConstantCodes.JS_VERSION%>"></script>
+<script src="https://unpkg.com/@shopify/app-bridge@3"></script>
+<script src="https://unpkg.com/@shopify/app-bridge-utils@3"></script>
+<script>
+    const hostJs = '${host}';
+</script>
+

@@ -1,0 +1,35 @@
+image: maven:3.8.3-jdk-11
+
+pipelines:
+  custom:
+    production:
+      - step:
+          name: Build Product View
+          caches:
+            - maven
+          script:
+            - mvn clean compile install
+
+            - pipe: atlassian/ssh-run:0.4.0
+              variables:
+                SSH_USER: 'root'
+                SERVER: '101.53.133.230'
+                PORT: 58259
+                MODE: 'command'
+                COMMAND: 'systemctl stop product-view'
+
+            - pipe: atlassian/sftp-deploy:0.5.11
+              variables:
+                USER: 'root'
+                SERVER: '101.53.133.230'
+                REMOTE_PATH: '/opt/dft/bin'
+                EXTRA_ARGS: '-P 58259'
+                LOCAL_PATH: 'target/product-view.war'
+
+            - pipe: atlassian/ssh-run:0.4.0
+              variables:
+                SSH_USER: 'root'
+                SERVER: '101.53.133.230'
+                PORT: 58259
+                MODE: 'command'
+                COMMAND: 'systemctl start product-view'

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="log-path">/opt/dft/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %level %c{1}: %msg%n" />
+        </Console>
+        <RollingFile name="tasks" fileName="${log-path}/print-scheduler.log"
+                     filePattern="${log-path}/print-scheduler-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %level %c{1}: %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <DefaultRolloverStrategy max="100" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <logger name="org.springframework" level="error"/>
+        <logger name="org.hibernate" level="error" />
+        <logger name="org.apache" level="error"/>
+        <logger name="com.zaxxer" level="error" />
+        <logger name="_org.springframework" level="error" />
+        <Root level="debug">
+            <AppenderRef ref="tasks" level="debug"/>
+            <AppenderRef ref="Console" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>

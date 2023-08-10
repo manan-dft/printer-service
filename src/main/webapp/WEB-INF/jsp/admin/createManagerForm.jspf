@@ -1,0 +1,187 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<form:form method="POST" action="admin/createManager" id="createManagerForm" commandName="accountDataDTO" class="form-horizontal">
+	<div class="row">
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">First Name</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="fname" path="fname" name="fname"
+							class="form-control validate[required, minSize[1], maxSize[20]"/>
+				<span class="error"><form:errors class="text-danger" path="fname"/></span>
+			</div>
+		</div>
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Last Name</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="lname" name="lname" path="lname"
+					class="form-control validate[required, minSize[2], maxSize[20]]" />
+				<span class="error"><form:errors path="lname" class="text-danger"/></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-8">
+			<span id="showMsg" class="error"></span>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">UserName</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="username" name="username" path="username" class="form-control validate[required, minSize[5], maxSize[20]]" />
+				<span class="error"><form:errors path="username" class="text-danger"/></span>
+			</div>
+		</div>
+	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Password</label>
+			<div class="col-sm-8">
+				<input type="password" id="password" name="password"
+					class="form-control validate[required, minSize[5], maxSize[20]]">
+				<span class="error"><form:errors path="password" class="text-danger" /></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Confirm Password</label>
+			<div class="col-sm-8">
+				<input type="password"
+					class="form-control validate[required,equals[password], minSize[5], maxSize[20]]">
+			</div>
+		</div>
+	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Email</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="email" name="email" path="email"
+					class="form-control validate[required, custom[email]]" />
+				<span class="error"><form:errors path="email" class="text-danger"/></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Country</label>
+			<div class="col-sm-8">
+				<form:select  id="country" name="country" path="country" class="form-control m-b validate[required]" >
+					<form:option value="USA" label="USA"/>
+				</form:select>
+				<span class="error"><form:errors path="country" class="text-danger"/></span>
+			</div>
+		</div>
+	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">State</label>
+			<div class="col-sm-8">
+				<form:select  id="state" name="state" path="state" class="form-control m-b validate[required]" >
+					<form:option value="" label=""/>
+					<form:option value="Alabama" />
+					<form:option value="Alaska" />
+					<form:option value="Arizona" />
+					<form:option value="Arkansas" />
+					<form:option value="California" />
+					<form:option value="Colorado" />
+					<form:option value="Connecticut" />
+					<form:option value="Delaware" />
+					<form:option value="Florida" />
+					<form:option value="Georgia" />
+					<form:option value="Hawaii" />
+					<form:option value="Idaho" />
+					<form:option value="Illinois" />
+					<form:option value="Indiana" />
+					<form:option value="Iowa" />
+					<form:option value="Kansas" />
+					<form:option value="Kentucky" />
+					<form:option value="Louisiana" />
+					<form:option value="Maine" />
+					<form:option value="Maryland" />
+					<form:option value="Massachusetts" />
+					<form:option value="Michigan" />
+					<form:option value="Minnesota" />
+					<form:option value="Missouri" />
+					<form:option value="Montana" />
+					<form:option value="Nebraska" />
+					<form:option value="Nevada" />
+					<form:option value="New Hampshire" />
+					<form:option value="New Jersey" />
+					<form:option value="New Mexico" />
+					<form:option value="New York" />
+					<form:option value="North Dakota" />
+					<form:option value="Ohio" />
+					<form:option value="Oklahoma" />
+					<form:option value="Oregon" />
+					<form:option value="Pennsylvania" />
+					<form:option value="Rhode Island" />
+					<form:option value="South Carolina" />
+					<form:option value="South Dakota" />
+					<form:option value="Tennessee" />
+					<form:option value="Texas" />
+					<form:option value="Utah" />
+					<form:option value="Vermont" />
+					<form:option value="Virginia" />
+					<form:option value="Washington" />
+					<form:option value="West Virginia" />
+					<form:option value="Wisconsin" />
+					<form:option value="Wyoming" />
+					
+				</form:select>
+				<span class="error"><form:errors path="state" class="text-danger"/></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">City</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="city" name="city" path="city"
+					class="form-control validate[required, minSize[5], maxSize[20]]" />
+					<span class="error"><form:errors path="city" class="text-danger" /></span>
+			</div>
+		</div>
+	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Pincode</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="pin" name="pin" path="pin"
+					class="form-control validate[required, minSize[5], maxSize[5],custom[onlyLetterNumber]]" />
+				<span class="error"><form:errors path="pin" class="text-danger"/></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Home Phone</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="hphone" name="hphone" path="hphone"
+					class="form-control validate[required,custom[phone]]" />
+				<span class="error"><form:errors path="email" class="text-danger" /></span>
+			</div>
+		</div>
+	
+		<div class="form-group col-lg-6">
+			<label class="col-sm-4 control-label">Work Phone</label>
+			<div class="col-sm-8">
+				<form:input type="text" id="wphone" name="wphone" path="wphone"
+					class="form-control validate[required,custom[phone]]" />
+				<span class="error"><form:errors path="wphone" class="text-danger"/></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="hr-line-dashed"></div>
+	<div class="form-group">
+		<div class="col-sm-8 col-sm-offset-10">
+			<%--<button class="btn btn-default" type="submit">Cancel</button>--%>
+			<button class="btn btn-primary" type="submit">Save Client</button>
+		</div>
+	</div>
+</form:form>

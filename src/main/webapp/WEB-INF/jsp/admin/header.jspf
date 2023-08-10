@@ -1,0 +1,8 @@
+<header id="navbar">
+	<div id="navbar-container" class="boxed">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand"> <img src="${pageContext.request.contextPath}/img/logo3.png" alt="Nifty Logo" class="brand-icon">
+			</a>
+		</div>
+	</div>
+</header>
