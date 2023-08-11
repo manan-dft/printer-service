@@ -39,7 +39,7 @@ public class ShopifyWebhookScheduler {
     private final QrCodeService qrCodeService;
     private final String FILE_DIRECTORY = "./";
 
-    private final String uri = "https://manan.dakshyafreondtech.com/zoho/getQrList?user=grp1";
+    private final String uri = "https://apps.shineauto.com.au/zoho/getQrList?user=grp1";
 
     public static String printer(String filePath, String printerName)
         throws IOException, PrinterException {
