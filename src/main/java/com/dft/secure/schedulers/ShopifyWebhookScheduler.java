@@ -2,7 +2,6 @@ package com.dft.secure.schedulers;
 
 import com.dft.secure.util.PNGFilePrintable;
 import com.dft.secure.util.QrCodeService;
-import com.google.zxing.WriterException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.apache.http.HttpEntity;
@@ -116,7 +115,7 @@ public class ShopifyWebhookScheduler {
     }
 
     @Scheduled(fixedRate = 3, timeUnit = TimeUnit.SECONDS)
-    public void processShopifyWebhooksScheduler() throws WriterException, IOException {
+    public void processShopifyWebhooksScheduler() throws IOException {
         log.debug("[processShopifyWebhooksScheduler] Entered");
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(uri);
