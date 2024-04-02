@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 @Log4j2
 @Component
 @RequiredArgsConstructor
-public class ShopifyWebhookScheduler {
+public class FetchPrintScheduler {
 
     private final QrCodeService qrCodeService;
     private final String FILE_DIRECTORY = "./";
@@ -76,8 +76,8 @@ public class ShopifyWebhookScheduler {
         for (PrintService printService : printServices) {
             log.debug("Printer service: {}", printService);
 
-            if (printService.getName().endsWith("(Zebra)")) {
-                log.debug("Found printer printing the QR code");
+            if (printService.getName().endsWith("(Copy 1)")) {
+                log.debug("Found printer printing the QR code: {}", printService.getName());
                 return printService;
             }
         }
